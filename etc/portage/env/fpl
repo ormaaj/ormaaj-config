@@ -1,0 +1,2 @@
+CFLAGS="${CFLAGS} -ftree-parallelize-loops=8"
+CXXFLAGS="${CFLAGS}"

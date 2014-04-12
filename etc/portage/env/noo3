@@ -1,0 +1,2 @@
+CFLAGS="-march=native -O2 -ggdb -mmmx -floop-interchange -floop-strip-mine -floop-block -pipe"
+CXXFLAGS="-march=native -O2 -ggdb -mmmx -floop-interchange -floop-strip-mine -floop-block -pipe"

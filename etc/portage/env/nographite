@@ -1,0 +1,2 @@
+CFLAGS="-march=native -O3 -ggdb -mmmx -pipe"
+CXXFLAGS="-march=native -O3 -ggdb -mmmx -pipe"

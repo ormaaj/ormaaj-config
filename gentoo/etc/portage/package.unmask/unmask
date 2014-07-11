@@ -1,4 +1,5 @@
 app-admin/eselect-guile
+app-admin/eselect-lua
 app-admin/haskell-updater
 app-admin/mcelog
 #app-emulation/qemu
@@ -13,9 +14,9 @@ app-text/cuneiform
 dev-cpp/eigen
 dev-haskell/deepseq
 dev-haskell/lushtags
+dev-lang/lua:0
 dev-lang/nacl-toolchain-newlib
 dev-lang/python
-dev-lang/lua
 <dev-lang/v8-9999
 #dev-libs/glib
 =dev-libs/libgcrypt-1.6.1
@@ -24,8 +25,7 @@ dev-lang/lua
 dev-scheme/racket
 dev-util/chromium-tools
 dev-util/emilpro
-=dev-util/mdds-0.10.1
-=dev-util/mdds-0.10.2
+dev-util/mdds
 dev-util/mono-tools
 <dev-vcs/git-9999
 games-simulation/flightgear
@@ -33,10 +33,12 @@ kde-misc/kwebkitpart
 media-gfx/digikam
 =media-gfx/exiv2-0.23-r2
 <media-gfx/gimp-9999
+=media-libs/libgphoto2-2.5.4-r1
 media-libs/libjpeg-turbo
 media-libs/libpano13
 media-libs/mesa
 media-sound/ardour
+media-sound/jack-audio-connection-kit
 <media-video/ffmpeg-9999
 net-analyzer/hping
 net-analyzer/metasploit
@@ -53,7 +55,7 @@ sys-devel/dragonegg
 sys-devel/gcc
 sys-devel/llvm
 sys-kernel/zen-sources
-#www-client/chromium
+www-client/chromium
 www-client/firefox
 www-client/opera
 www-client/xxxterm

@@ -35,13 +35,14 @@
 # bridged:
 
 	modules='iproute2 !ifconfig !iwconfig'
-	bridge_br0='vbox0 vbox1 enp7s0'
+	#bridge_br0='vbox0 vbox1 enp7s0'
+	bridge_br0='vbox0 vbox1 eth1'
 	brctl_br0='setfd 0 sethello 30 stp off'
 	rc_net_br0_need='net.vbox0 net.vbox1'
 	config_br0='192.168.1.2/24 brd 192.168.1.255'
 	routes_br0='default via 192.168.1.1'
 	dns_domain_br0=ormaaj.org
-	dns_servers_br0='8.8.8.8 8.8.4.4 205.171.3.65 205.171.2.65' #208.67.220.220 208.67.222.222
+	dns_servers_br0='205.171.3.65 205.171.2.65 8.8.8.8 8.8.4.4' #208.67.220.220 208.67.222.222
 	dhcp_br0='nodns nontp nois'
 	dhcpcd_br0=-R
 

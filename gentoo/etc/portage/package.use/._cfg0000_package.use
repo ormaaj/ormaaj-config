@@ -7,16 +7,15 @@ app-editors/cssed plugins
 app-editors/gvim gtk cscope netbeans
 app-editors/vim vim-with-x bash-completion vim-pager cscope
 app-emulation/libvirt pcap virt-network python_single_target_python2_7
-app-emulation/spice -smartcard
 app-emulation/q4wine winetriks icoutils
-app-emulation/qemu tls kqemu sdl alsa qemu-ifup virtfs ssh usbredir smartcard
+app-emulation/qemu tls kqemu sdl alsa qemu-ifup virtfs ssh usbredir -smartcard
 app-emulation/virtualbox additions extensions -java
 app-emulation/virtualbox-bin additions chm
 app-emulation/wine win64 win32 abi_x86_32 -custom-cflags -gstreamer
 app-misc/byobu python_single_target_python2_7
 app-misc/screen multiuser
 app-office/akonadi-server sqlite
-app-office/calligra glew -kdepim -calligra_features_plan
+app-office/calligra kdepim glew
 app-office/kchart reports
 app-office/koffice-libs reports
 app-office/libreoffice gtk3 -webdav
@@ -29,7 +28,6 @@ app-shells/ksh -nls
 app-text/enchant aspell
 app-text/gocr tk
 app-text/libwpd tools
->=app-text/texlive-core-2013-r1 xetex
 app-text/texlive extra
 app-text/trang doc
 dev-cpp/gtkmm accessibility
@@ -37,72 +35,53 @@ dev-db/postgresql-base doc
 dev-db/postgresql-server doc
 dev-db/sqlite extensions fts3 icu threadsafe unlock-notify -secure-delete 
 dev-db/virtuoso-server -kerberos
-dev-dotnet/* doc
 dev-dotnet/mono-addins gtk
+dev-dotnet/* doc
 dev-games/cegui devil
 dev-games/openscenegraph gdal glut -ffmpeg
+#dev-haskell/* doc
 dev-java/lucene analyzers
 dev-java/sun-jdk nsplugin
 dev-java/sun-jre-bin nsplugin
 dev-java/swing-layout source
 dev-lang/ghc doc ghcbootstrap
 dev-lang/icc ipp mkl
-dev-lang/mono -doc
 dev-lang/php sysvipc gd suhosin mysqli pcntl posix -sqlite3 -sqlite
 dev-lang/python sqlite tk examples doc sage gdbm -build
 dev-lang/R perl
 dev-lang/ruby -rdoc
 dev-lang/swig ccache
 dev-lang/swi-prolog -java
+dev-lang/mono doc
 dev-libs/DirectFB fbcon
 dev-libs/elfutils static-libs
 dev-libs/klibc -custom-cflags
 dev-libs/libgit2-glib python_targets_python3_2
 dev-libs/libnl utils
-dev-libs/libpcre pcre16 pcre32
 dev-libs/libtomcrypt libtommath
 dev-libs/libxml2 doc
 dev-libs/nss utils
 dev-libs/openssl -kerberos
+dev-libs/libpcre pcre16 pcre32
 dev-libs/xmlrpc-c libwww curl
 dev-libs/xmlsec gcrypt
 dev-libs/xqilla doc examples
->=dev-python/chardet-2.2.1 python_targets_python3_2
->=dev-python/coverage-3.7.1 python_targets_python3_2
-dev-python/cython doc examples
->=dev-python/dbus-python-1.2.0 python_targets_python3_2
 dev-python/* doc
->=dev-python/docutils-0.11 python_targets_python3_2
+dev-python/cython doc examples
 dev-python/imaging tk
 dev-python/ipython matplotlib notebook octave
->=dev-python/jinja-2.6-r100:compat python_targets_python3_2
 dev-python/lxml doc examples
 dev-python/markdown pygments
->=dev-python/markupsafe-0.18 python_targets_python3_2
-dev-python/matplotlib -doc
 >=dev-python/pycairo-1.10.0-r4 python_targets_python3_2
->=dev-python/pyenchant-1.6.5-r1 python_targets_python3_2
->=dev-python/pygments-1.6 python_targets_python3_2
 >=dev-python/pygobject-3.8.3 python_targets_python3_2
->=dev-python/PyQt4-4.10.3-r2 python_targets_python3_2
 dev-python/PyQt4 assistant declarative svg webkit X doc examples help multimedia scripttools xmlpatterns -kde
 dev-python/pyRXP examples
 dev-python/pyxml doc examples
->=dev-python/qscintilla-python-2.8 python_targets_python3_2
-=dev-python/setuptools-1.1.6 python_targets_python3_2
-=dev-python/setuptools-2.2 python_targets_python3_2
-=dev-python/setuptools-5.1 python_targets_python3_2
-=dev-python/setuptools-5.2 python_targets_python3_2
-=dev-python/setuptools-5.3 python_targets_python3_2
-=dev-python/setuptools-5.4.1 python_targets_python3_2
->=dev-python/sip-4.15.4 python_targets_python3_2
->=dev-python/sphinx-1.2.2 python_targets_python3_2
 dev-qt/designer -phonon
 dev-qt/qt-creator autotools cmake examples fakevim valgrind
 dev-qt/qtgui private-headers gtkstyle
 dev-qt/qthelp doc compat
 dev-qt/qtsvg accessibility
-dev-qt/qtwebkit widgets
 dev-ruby/bouncy-castle-java ruby_targets_jruby
 >=dev-ruby/json-1.8.0 ruby_targets_ruby20
 >=dev-ruby/rake-0.9.6 ruby_targets_ruby20
@@ -110,12 +89,12 @@ dev-ruby/bouncy-castle-java ruby_targets_jruby
 dev-ruby/rubygems ruby_targets_jruby
 dev-scheme/racket futures jit places doc plot
 dev-util/codeblocks contrib
-dev-util/eric python_single_target_python3_2 python_targets_python3_2
 dev-util/gtk-doc python_single_target_python2_7
 dev-util/kdevelop cvs java php sql okteta qthelp
 dev-util/kdevplatform
 dev-util/meld python_single_target_python2_7
 dev-util/monodevelop doc
+dev-util/eric python_single_target_python3_2 python_targets_python3_2
 dev-vcs/cvs server
 dev-vcs/git-cola python_single_target_python2_7
 dev-vcs/git gtk cvs doc tk
@@ -128,7 +107,6 @@ games-simulation/flightgear fgcom
 games-strategy/hedgewars server
 gnome-base/gvfs gdu -samba
 kde-base/kalzium solver editor
-kde-base/kdelibs nepomuk doc
 kde-base/kdemultimedia tunepimp
 kde-base/kdeplasma-addons desktopglobe qwt
 kde-base/kget -bittorrent
@@ -163,7 +141,7 @@ media-libs/freetype -cleartype kpathsea infinality
 media-libs/libgphoto2 exif
 media-libs/libpng apng
 media-libs/libwmf xml -expat
-media-libs/mesa vdpau g3dvl gbm openvg gles2 dri3 r600-llvm-compiler llvm opencl -xvmc -classic 
+media-libs/mesa vdpau g3dvl gbm openvg gles2 -xvmc -classic -r600-llvm-compiler -llvm
 media-libs/mlt melt frei0r kdenlive
 media-libs/phonon gstreamer vlc
 media-libs/swfdec gtk
@@ -181,7 +159,6 @@ media-video/ffmpeg xvid schroedinger opencore-amr network vpx dirac opus
 media-video/kmplayer npp
 media-video/minitube gstreamer kde
 media-video/mplayer opencore-amr dirac -cdparanoia -gtk
-media-video/mplayer2 -quvi
 media-video/vlc aalib cddax dirac rtsp fbcon opengl x264 bidi v4l v4l2 libv4l2 vlm xosd skins win32codecs dvd ffmpeg mpeg mad aac dts a52 ogg flac theora ogg vorbis matroska freetype bidi xv svga gnutls stream vlm cdda vcd live cddb dvb upnp schroedinger postproc -nsplugin -samba -httpd
 net-analyzer/ettercap gtk
 net-analyzer/hping tcl
@@ -194,7 +171,6 @@ net-analyzer/wireshark -qt4 adns gnutls gcrypt kerberos smi zlib -gtk -gtk2 gtk3
 net-dns/avahi autoipd qt4 mdnsresponder-compat howl-compat gtk3 gtk
 net-dns/bind berkdb dlz gssapi
 net-dns/bind-tools gssapi
-net-dns/dnsmasq dhcp-tools dnssec
 net-dns/libidn -mono
 net-fs/cifs-utils ads creds upcall -acl
 net-fs/nfs-utils -kerberos
@@ -274,11 +250,11 @@ www-plugins/mplayerplug-in divx wmp realmedia
 x11-base/xorg-server xvfb -kdrive 
 x11-libs/cairo glitz svg X lcdfilter tee xcb -cleartype 
 x11-libs/libdrm libkms
-x11-libs/libxcb xkb
 x11-libs/libXft -cleartype
 #x11-libs/qt accessibility gif jpeg png ssl zlib doc glib
 x11-libs/qtscriptgenerator -kde
 x11-libs/wxGTK unicode X -odbc
+x11-libs/libxcb xkb
 x11-misc/xmobar examples
 x11-misc/xmonad-extras volume
 x11-misc/zim python_single_target_python2_7
@@ -288,3 +264,87 @@ x11-themes/gtk-engines-murrine themes
 #x11-wm/xmonad-contrib doc
 #x11-wm/xmonad doc
 x11-wm/xpra server ssh
+# required by dev-texlive/texlive-xetex-2013
+# required by dev-python/matplotlib-1.3.1[latex]
+# required by @selected
+# required by @world (argument)
+>=app-text/texlive-core-2013-r1 xetex
+# required by dev-util/eric-5.4.0_rc1
+# required by @selected
+# required by @world (argument)
+>=dev-python/PyQt4-4.10.3-r2 python_targets_python3_2
+# required by dev-util/eric-5.4.0_rc1
+# required by @selected
+# required by @world (argument)
+>=dev-python/pygments-1.6 python_targets_python3_2
+# required by dev-util/eric-5.4.0_rc1
+# required by @selected
+# required by @world (argument)
+>=dev-python/qscintilla-python-2.8 python_targets_python3_2
+# required by dev-python/PyQt4-4.10.3-r2
+# required by dev-util/eric-5.4.0_rc1
+# required by @selected
+# required by @world (argument)
+>=dev-python/sip-4.15.4 python_targets_python3_2
+# required by dev-util/eric-5.4.0_rc1
+# required by @selected
+# required by @world (argument)
+>=dev-python/chardet-2.2.1 python_targets_python3_2
+# required by dev-python/PyQt4-4.10.3-r2[dbus]
+# required by dev-util/eric-5.4.0_rc1
+# required by @selected
+# required by @world (argument)
+>=dev-python/dbus-python-1.2.0 python_targets_python3_2
+# required by dev-util/eric-5.4.0_rc1
+# required by @selected
+# required by @world (argument)
+>=dev-python/coverage-3.7.1 python_targets_python3_2
+# required by dev-util/eric-5.4.0_rc1[spell]
+# required by @selected
+# required by @world (argument)
+>=dev-python/pyenchant-1.6.5-r1 python_targets_python3_2
+# required by dev-python/coverage-3.7.1
+# required by dev-util/eric-5.4.0_rc1
+# required by @selected
+# required by @world (argument)
+=dev-python/setuptools-1.1.6 python_targets_python3_2
+# required by dev-python/chardet-2.2.1
+# required by dev-util/eric-5.4.0_rc1
+# required by @selected
+# required by @world (argument)
+=dev-python/setuptools-2.2 python_targets_python3_2
+# required by sci-libs/scipy-0.13.3
+# required by dev-python/oct2py-1.3.0
+# required by dev-python/ipython-1.2.1[octave]
+# required by dev-python/ipdb-0.8
+# required by @selected
+# required by @world (argument)
+#>=virtual/python-imaging-2 python_targets_python3_2
+# required by dev-python/pygments-1.6_p20140324[doc]
+# required by dev-python/ipython-1.2.1[notebook,-nbconvert,qt4]
+# required by dev-python/matplotlib-1.3.1[doc]
+# required by @selected
+# required by @world (argument)
+>=dev-python/sphinx-1.2.2 python_targets_python3_2
+# required by dev-python/sphinx-1.2.2
+# required by dev-python/matplotlib-1.3.1[doc]
+# required by dev-python/ipython-1.2.1[matplotlib]
+# required by @selected
+# required by @world (argument)
+>=dev-python/docutils-0.11 python_targets_python3_2
+# required by dev-python/sphinx-1.2.2
+# required by dev-python/matplotlib-1.3.1[doc]
+# required by dev-python/ipython-1.2.1[matplotlib]
+# required by @selected
+# required by @world (argument)
+>=dev-python/jinja-2.6-r100:compat python_targets_python3_2
+# required by dev-python/jinja-2.6-r100
+# required by dev-python/sphinx-1.2.2
+# required by dev-python/matplotlib-1.3.1[doc]
+# required by dev-python/ipython-1.2.1[matplotlib]
+# required by @selected
+# required by @world (argument)
+>=dev-python/markupsafe-0.18 python_targets_python3_2
+# required by dev-qt/qtquick1-5.3.0_beta::qt[webkit]
+# required by @qt5-addons (argument)
+=dev-qt/qtwebkit-5.3.0_beta widgets

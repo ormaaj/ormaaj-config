@@ -7,60 +7,60 @@
 # Set up the initial associative array of CFLAGS and CXXFLAGS. 
 # Takes an array name to assign and optionally the names of "flag groups" to include.
 # setupFlags arrname groupname [ groupname ... ]
-setupFlags() {
-	if [[ $FUNCNAME != "${FUNCNAME[1]}" ]]; then
-		if [[ -z $1 ]]; then
-			eerror "${FUNCNAME}: Must pass at least a non-empty associative array name argument."
-			return 1
-		else
-			# Base CFLAG groups
-			local -A groups=(
-				[base]='(-march=native -Ofast -mmmx -pipe)'
-				[graphite]='(-floop-interchange -floop-strip-mine -floop-block)'
-				[debug]='(-ggdb)'
-				[dragonegg]='(-fplugin=/usr/lib64/llvm/dragonegg.so -fplugin-arg-dragonegg-enable-gcc-optzns)'
-			)
-
-			local x
-			for x in "${@:2}"; do
-				if ${groups[$x]:+false}; then
-					eerror "${FUNCNAME}: Invalid flag group name: ${x}"
-					return 1
-				else
-					local -a "y=${groups[$x]}" 'z+=("${y[@]}")'
-				fi
-			done
-			"$FUNCNAME" "$1" "$(printf '[%q]= ' "${z[@]}")"
-		fi
+function setupFlags {
+	typeset -n __groupArray=$1
+	if [[ -z $1 ]]; then
+		eerror "${FUNCNAME}: Must pass at least a non-empty associative array name argument."
+		return 1
 	else
-		unset -v x y z groups 
-		eval "${1}=(${2})"
+		# Base CFLAG groups
+		typeset -A groups=(
+			[base]='(-march=native -Ofast -fno-stack-protector -mmmx -pipe)'
+			[graphite]='(-floop-interchange -floop-strip-mine -floop-block)'
+			[debug]='(-ggdb)'
+			[dragonegg]='(-fplugin=/usr/lib64/llvm/dragonegg.so -fplugin-arg-dragonegg-enable-gcc-optzns)'
+		)
+
+		typeset x
+		typeset -a y
+		for x in "${@:2}"; do
+			if ${groups[$x]:+false}; then
+				eerror "${FUNCNAME}: Invalid flag group name: ${x}"
+				return 1
+			else
+				eval "y=${groups[$x]}"
+				eval "$(printf '__groupArray[%q]= ' "${y[@]}")"
+			fi
+		done
 	fi
 }
 
 # runHooks "$CATEGORY" "$PN"
-runHooks() {
-	local x
+function runHooks {
+	typeset x
 	for x; do
 		[[ $x ]] || return
 	done
 
 	# Define mappings from package names to hook functions.
-	local -A categoryDefs=(
+	typeset -A categoryDefs=(
 		[app-arch]='([p7zip]=noGraphite)'
-		[app-shells]='([ksh]=)'
+		# [app-shells]='([ksh]=)'
 		[app-office]='([libreoffice]=plainBuild)'
 		[app-text]='([aspell]=aMake112)'
 		[dev-db]='([sqlite]=noFast [mysql-connector-c++]=noGraphite [mysql]=noGraphite [postgresql-base]=noFast)'
 		# [dev-games]='([simgear]=noFast [openscenegraph]=noFast)'
+		#[dev-libs]='([protobuf]=noFast [ppl]=noGraphite [cloog-ppl]=noGraphite)'
 		[dev-libs]='([protobuf]=noFast)'
-		[dev-util]='([valgrind]=epuser)'
+		[dev-util]='([valgrind]=epuser [radare2]=plainBuild)'
 		[dev-qt]='([qtcore]=xnoFast)'
 		# [games-simulation]='([flightgear]=noFast)'
 		[kde-base]='([kdelibs]=noFast)'
 		[media-gfx]='([digikam]=dgKamFix [rawstudio]=noFast)'
 		[media-libs]='([gavl]=aMake112 [mesa]=noFast)'
 		[net-analyzer]='([rrdtool]=noFast)'
+		#[net-proxy]='([polipo]=plainBuild)'
+		[sys-libs]='([glibc]=debugBuild)'
 		[sys-devel]='([binutils]=xdoBinutils)'
 		[x11-libs]='([gtk+]=xdoGtk)'
 		[www-client]='([phantomjs]=noFast [chromium]=noFast [firefox]=noGraphite)'
@@ -70,29 +70,37 @@ runHooks() {
 	# default flags. Remember if you want to use default flags as a base for a
 	# hook, you must run setupFlags within the hook. This allows using
 	# different default flag groups as a base per-package.
-	local -A flags
-	if declare -f "${packageDefs[$2]:-:}" >/dev/null 2>&1; then
+	typeset -A flags
+	if typeset -f "${packageDefs[$2]:-:}" >/dev/null 2>&1; then
 		${2:+"${packageDefs[$2]:-false}"} || return
 		${2:+unset -f "${packageDefs[$2]}"}
 		einfo "Hook function: ${packageDefs[$2]} -- finished successfully. :)"
 	else
 		# Each defined key of the "flags" array will become part of CFLAGS.
-		setupFlags flags base graphite || die 'setupFlags failed'
-		einfo "No hook function defined for ${1}/${2} -- used default flag groups. :)"
+		if [[ $OVERRIDE_FLAGS ]]; then
+			set -f
+			setupFlags flags $OVERRIDE_FLAGS
+			set +f
+			einfo "No hook function defined for ${1}/${2} -- used user-defined OVERRIDE_FLAGS. :)"
+		else
+			setupFlags flags base graphite || die 'setupFlags failed'
+			einfo "No hook function defined for ${1}/${2} -- used default flag groups. :)"
+		fi
 	fi
+
 	export C{,XX}"FLAGS=${!flags[*]}"
 }
 
 # Clean up our mess.
-cleanup() {
+function cleanup {
 	unset -f setupFlags runHooks main cleanup
 }
 
-main() {
+function main {
 	(( BASH_VERSINFO >= 4 )) || die 'bashrc requires at least Bash 4. Upgrade!'
 
-	local -a shopts=(extglob lastpipe)
-	local opt
+	typeset -a shopts=(extglob lastpipe)
+	typeset opt
 	for opt in "${!shopts[@]}"; do
 		if shopt -q "${shopts[opt]}"; then
 			unset -v 'shopts[opt]'
@@ -114,32 +122,32 @@ main() {
 #########
 #	setupFlags flags base graphite || return
 
-aMake112() {
+function aMake112 {
 	setupFlags flags base graphite || return
 	export WANT_AUTOMAKE=1.12
 }
 
-debugBuild() {
-	setupFlags flags base debug || return
-	unset -v 'flags[-Ofast]' 'flags[-mmmx]'
+function debugBuild {
+	setupFlags flags base graphite debug || return
+	flags[-ggdb]=
 }
 
-doGtk() {
+function doGtk {
 	setupFlags flags base graphite debug || return
 	COLLISION_IGNORE+=' /usr/bin/gtk-update-icon-cache /usr/lib/debug/usr/bin/gtk-update-icon-cache.debug'
 }
 
-dgKamFix() {
+function dgKamFix {
 	setupFlags flags base graphite || return
 	export MYSQL_TOOLS_PATH=/usr/share/mysql/scripts
 }
 
-doBinutils() {
+function doBinutils {
 	setupFlags flags base graphite || return
 	export EXTRA_ECONF=--enable-gold=default
 }
 
-_doKsh() {
+function _doKsh {
 	setupFlags flags base graphite || return
 	pre_pkg_setup() {
 		local d='printf "<%s> " "${FUNCNAME[@]}"; echo; inherit flag-o-matic; trap -- DEBUG RETURN'
@@ -166,31 +174,31 @@ _doKsh() {
 	}
 }
 
-epuser() {
+function epuser {
 	post_src_prepare() { epatch_user; }
 }
 
-noFast() {
+function noFast {
 	setupFlags flags base graphite || return
 	unset -v 'flags[-Ofast]'
 	flags[-O3]=
 }
 
-noGraphite() {
+function noGraphite {
 	setupFlags flags base || return
 }
 
-plainBuild() {
+function plainBuild {
 	setupFlags flags base || return
-	unset -v 'flags['-{Ofast,mmmx}\]
+	unset -v flags\[-{Ofast,mmmx}\]
 	flags[-O2]=
 }
 
-graphiteBuilds() {
+function graphiteBuilds {
 	setupFlags flags base || return
 }
 
-doChromium() {
+function doChromium {
 	setupFlags flags base graphite || return
 	pre_src_configure() {
 		egyp() {

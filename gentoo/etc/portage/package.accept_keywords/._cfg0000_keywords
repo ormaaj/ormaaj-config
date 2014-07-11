@@ -39,11 +39,11 @@ dev-scheme/racket **
 dev-util/chromium-tools **
 dev-util/emilpro **
 dev-util/fsharpbinding **
-#dev-util/kdev-clang **
-#dev-util/kdevelop **
-#dev-util/kdevelop-pg-qt **
-#dev-util/kdevelop-python **
-#dev-util/kdevplatform **
+dev-util/kdev-clang **
+dev-util/kdevelop **
+dev-util/kdevelop-pg-qt **
+dev-util/kdevelop-python **
+dev-util/kdevplatform **
 dev-util/kxsldbg **
 #dev-util/monodevelop **
 dev-util/mono-tools **
@@ -99,7 +99,6 @@ net-libs/libktorrent **
 net-libs/libproxy **
 net-libs/xulrunner **
 net-p2p/ktorrent **
-net-proxy/polipo **
 sys-apps/nvramtool **
 <sys-apps/portage-9999 **
 sys-apps/superiotool **
@@ -119,3 +118,48 @@ x11-libs/libdrm **
 x11-misc/xmobar **
 x11-wm/xmonad **
 x11-wm/xmonad-contrib **
+# required by kde-base/konqueror-4.13.0[bookmarks]
+# required by @kde-baseapps-4.13
+# required by @selected
+# required by @world (argument)
+=kde-base/keditbookmarks-4.9999 **
+# required by games-board/knights-2.5.0-r1
+# required by @selected
+# required by @world (argument)
+=kde-base/kdelibs-4.9999 **
+# required by kde-base/kdepasswd-4.13.0
+# required by @kde-baseapps-4.13
+# required by @selected
+# required by @world (argument)
+=kde-base/libkonq-4.9999 **
+# required by kde-base/plasma-runtime-4.13.0
+# required by @kdebase-runtime-4.13
+# required by @selected
+# required by @world (argument)
+=kde-base/kactivities-4.13.49.9999 **
+# required by kde-misc/nepomukshell-0.8.0
+# required by @selected
+# required by @world (argument)
+=kde-base/oxygen-icons-4.9999 **
+# required by kde-base/kate-4.13.0
+# required by @kdesdk-4.13
+# required by @selected
+# required by @world (argument)
+=kde-base/katepart-4.9999 **
+# required by kde-base/kdelibs-4.9999::kde[handbook]
+# required by kde-base/kdesu-4.9999::kde[handbook]
+=kde-base/khelpcenter-4.9999 **
+# required by kde-base/khelpcenter-4.9999::kde
+# required by kde-base/kdelibs-4.9999::kde[handbook]
+# required by kde-base/libkonq-4.9999::kde
+# required by kde-base/keditbookmarks-4.9999::kde
+# required by www-client/rekonq-9999::kde
+# required by @selected
+# required by @world (argument)
+=kde-base/kdesu-4.9999 **
+# required by kde-base/kdelibs-4.13.0
+# required by kde-base/kactivities-4.13.49.9999::kde
+# required by www-client/rekonq-9999::kde[kde]
+# required by @selected
+# required by @world (argument)
+=kde-base/kde-env-4.9999 **

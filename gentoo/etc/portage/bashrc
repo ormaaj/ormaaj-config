@@ -83,7 +83,12 @@ function runHooks {
 			set +f
 			einfo "No hook function defined for ${1}/${2} -- used user-defined OVERRIDE_FLAGS. :)"
 		else
-			setupFlags flags base graphite || die 'setupFlags failed'
+			if [[ $CC == clang* || $CXX == clang* ]]; then
+				setupFlags flags base || die 'setupFlags failed' # No graphite flags
+			else
+				setupFlags flags base graphite || die 'setupFlags failed'
+			fi
+
 			einfo "No hook function defined for ${1}/${2} -- used default flag groups. :)"
 		fi
 	fi

@@ -5,7 +5,7 @@ app-editors/qxmledit **
 #app-emulation/libvirt **
 app-emulation/q4wine **
 <app-emulation/qemu-9999 **
-#app-emulation/virt-manager **
+app-emulation/virt-manager **
 app-emulation/wine **
 app-emulation/winetricks **
 app-misc/tmux **
@@ -98,6 +98,7 @@ net-irc/weechat **
 net-libs/libktorrent **
 net-libs/libproxy **
 net-libs/xulrunner **
+net-misc/socat **
 net-p2p/ktorrent **
 net-proxy/polipo **
 sys-apps/nvramtool **

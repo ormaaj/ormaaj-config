@@ -7,9 +7,9 @@ app-editors/cssed plugins
 app-editors/gvim gtk cscope netbeans
 app-editors/vim vim-with-x bash-completion vim-pager cscope
 app-emulation/libvirt pcap virt-network python_single_target_python2_7
-app-emulation/spice -smartcard
 app-emulation/q4wine winetriks icoutils
 app-emulation/qemu tls kqemu sdl alsa qemu-ifup virtfs ssh usbredir smartcard
+app-emulation/spice -smartcard
 app-emulation/virtualbox additions extensions -java
 app-emulation/virtualbox-bin additions chm
 app-emulation/wine win64 win32 abi_x86_32 -custom-cflags -gstreamer
@@ -45,9 +45,9 @@ dev-java/lucene analyzers
 dev-java/sun-jdk nsplugin
 dev-java/sun-jre-bin nsplugin
 dev-java/swing-layout source
-dev-lang/ghc doc ghcbootstrap
+dev-lang/ghc doc -ghcbootstrap
 dev-lang/icc ipp mkl
-dev-lang/mono -doc
+dev-lang/mono doc
 dev-lang/php sysvipc gd suhosin mysqli pcntl posix -sqlite3 -sqlite
 dev-lang/python sqlite tk examples doc sage gdbm -build
 dev-lang/R perl
@@ -57,7 +57,6 @@ dev-lang/swi-prolog -java
 dev-libs/DirectFB fbcon
 dev-libs/elfutils static-libs
 dev-libs/klibc -custom-cflags
-dev-libs/libgit2-glib python_targets_python3_2
 dev-libs/libnl utils
 dev-libs/libpcre pcre16 pcre32
 dev-libs/libtomcrypt libtommath
@@ -67,36 +66,20 @@ dev-libs/openssl -kerberos
 dev-libs/xmlrpc-c libwww curl
 dev-libs/xmlsec gcrypt
 dev-libs/xqilla doc examples
->=dev-python/chardet-2.2.1 python_targets_python3_2
->=dev-python/coverage-3.7.1 python_targets_python3_2
 dev-python/cython doc examples
->=dev-python/dbus-python-1.2.0 python_targets_python3_2
 dev-python/* doc
->=dev-python/docutils-0.11 python_targets_python3_2
 dev-python/imaging tk
 dev-python/ipython matplotlib notebook octave
->=dev-python/jinja-2.6-r100:compat python_targets_python3_2
 dev-python/lxml doc examples
 dev-python/markdown pygments
->=dev-python/markupsafe-0.18 python_targets_python3_2
 dev-python/matplotlib -doc
->=dev-python/pycairo-1.10.0-r4 python_targets_python3_2
->=dev-python/pyenchant-1.6.5-r1 python_targets_python3_2
->=dev-python/pygments-1.6 python_targets_python3_2
->=dev-python/pygobject-3.8.3 python_targets_python3_2
->=dev-python/PyQt4-4.10.3-r2 python_targets_python3_2
-dev-python/PyQt4 assistant declarative svg webkit X doc examples help multimedia scripttools xmlpatterns -kde
+dev-python/PyQt4 assistant declarative svg webkit X doc examples help multimedia scripttools xmlpatterns -kde python_targets_python3_2
 dev-python/pyRXP examples
 dev-python/pyxml doc examples
->=dev-python/qscintilla-python-2.8 python_targets_python3_2
-=dev-python/setuptools-1.1.6 python_targets_python3_2
-=dev-python/setuptools-2.2 python_targets_python3_2
-=dev-python/setuptools-5.1 python_targets_python3_2
-=dev-python/setuptools-5.2 python_targets_python3_2
-=dev-python/setuptools-5.3 python_targets_python3_2
+>=dev-python/qscintilla-python-2.8.3 python_targets_python3_2
 =dev-python/setuptools-5.4.1 python_targets_python3_2
->=dev-python/sip-4.15.4 python_targets_python3_2
->=dev-python/sphinx-1.2.2 python_targets_python3_2
+=dev-python/sip-4.16.2 python_targets_python3_2
+=dev-python/xmpppy-0.5.0_rc1 python_targets_python3_2
 dev-qt/designer -phonon
 dev-qt/qt-creator autotools cmake examples fakevim valgrind
 dev-qt/qtgui private-headers gtkstyle
@@ -110,7 +93,7 @@ dev-ruby/bouncy-castle-java ruby_targets_jruby
 dev-ruby/rubygems ruby_targets_jruby
 dev-scheme/racket futures jit places doc plot
 dev-util/codeblocks contrib
-dev-util/eric python_single_target_python3_2 python_targets_python3_2
+dev-util/eric python_targets_python3_2 python_single_target_python3_2
 dev-util/gtk-doc python_single_target_python2_7
 dev-util/kdevelop cvs java php sql okteta qthelp
 dev-util/kdevplatform
@@ -122,6 +105,7 @@ dev-vcs/git gtk cvs doc tk
 dev-vcs/subversion -dso perl
 games-emulation/bsnes -gtk snesfilter
 games-emulation/bsnes-phoenix -gtk
+games-emulation/higan profile_accuracy profile_performance profile_balanced
 games-emulation/mupen64plus plugins
 games-emulation/ps2emu-zzogl shaders
 games-simulation/flightgear fgcom
@@ -180,8 +164,8 @@ media-sound/solfege python_single_target_python2_7
 media-video/ffmpeg xvid schroedinger opencore-amr network vpx dirac opus
 media-video/kmplayer npp
 media-video/minitube gstreamer kde
-media-video/mplayer opencore-amr dirac -cdparanoia -gtk
 media-video/mplayer2 -quvi
+media-video/mplayer opencore-amr dirac -cdparanoia -gtk
 media-video/vlc aalib cddax dirac rtsp fbcon opengl x264 bidi v4l v4l2 libv4l2 vlm xosd skins win32codecs dvd ffmpeg mpeg mad aac dts a52 ogg flac theora ogg vorbis matroska freetype bidi xv svga gnutls stream vlm cdda vcd live cddb dvb upnp schroedinger postproc -nsplugin -samba -httpd
 net-analyzer/ettercap gtk
 net-analyzer/hping tcl
@@ -236,6 +220,7 @@ sys-apps/lshw gtk
 sys-apps/paludis doc inquisitio visibility bash-completion ruby
 sys-apps/pciutils -zlib
 sys-apps/portage epydoc doc
+=sys-apps/razercfg-0.26 python_single_target_python3_3
 sys-apps/v86d x86emu
 sys-block/gparted kde btrfs fat ntfs
 sys-block/parted device-mapper
@@ -247,7 +232,6 @@ sys-devel/gcc graphite lto doc
 sys-devel/gdb python
 sys-devel/llvm ocaml gold clang
 sys-fs/aufs2 inotify kernel-patch
-sys-fs/cryptsetup python_single_target_python2_7
 sys-fs/ntfs3g suid ntfsprogs
 sys-fs/udev extras -firmware-loader
 sys-kernel/zen-sources -stable
@@ -272,7 +256,7 @@ www-plugins/gnash agg ssh gtk
 www-plugins/moonlight sdk
 www-plugins/mplayerplug-in divx wmp realmedia
 x11-base/xorg-server xvfb -kdrive 
-x11-libs/cairo glitz svg X lcdfilter tee xcb -cleartype 
+x11-libs/cairo glitz svg X lcdfilter tee xcb -xlib-xcb -cleartype 
 x11-libs/libdrm libkms
 x11-libs/libxcb xkb
 x11-libs/libXft -cleartype
@@ -281,7 +265,6 @@ x11-libs/qtscriptgenerator -kde
 x11-libs/wxGTK unicode X -odbc
 x11-misc/xmobar examples
 x11-misc/xmonad-extras volume
-x11-misc/zim python_single_target_python2_7
 x11-terms/rxvt-unicode 256-color iso14755 wcwidth xterm-color -vanilla -perl
 x11-themes/gentoo-artwork offensive
 x11-themes/gtk-engines-murrine themes

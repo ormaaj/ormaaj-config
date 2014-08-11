@@ -1,4 +1,5 @@
 app-admin/conky iostats hddtemp lua weather-metar weather-xoap math portmon nano-syntax -audacious
+app-accessibility/speech-dispatcher python_targets_python3_3
 app-crypt/heimdal -ssl
 app-crypt/pinentry gtk
 app-doc/pms html
@@ -67,9 +68,10 @@ dev-libs/xmlrpc-c libwww curl
 dev-libs/xmlsec gcrypt
 dev-libs/xqilla doc examples
 dev-python/cython doc examples
+dev-python/docutils python_targets_python3_2
 dev-python/* doc
 dev-python/imaging tk
-dev-python/ipython matplotlib notebook octave
+dev-python/ipython matplotlib notebook octave python_targets_python3_4 -doc
 dev-python/lxml doc examples
 dev-python/markdown pygments
 dev-python/matplotlib -doc
@@ -93,7 +95,7 @@ dev-ruby/bouncy-castle-java ruby_targets_jruby
 dev-ruby/rubygems ruby_targets_jruby
 dev-scheme/racket futures jit places doc plot
 dev-util/codeblocks contrib
-dev-util/eric python_targets_python3_2 python_single_target_python3_2
+dev-util/eric python_targets_python3_4 python_single_target_python3_4
 dev-util/gtk-doc python_single_target_python2_7
 dev-util/kdevelop cvs java php sql okteta qthelp
 dev-util/kdevplatform

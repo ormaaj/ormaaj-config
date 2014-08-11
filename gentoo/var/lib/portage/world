@@ -415,8 +415,10 @@ net-misc/dhcpcd
 net-misc/dnetstats
 net-misc/freerdp
 net-misc/ifenslave
+net-misc/keychain
 net-misc/knemo
 net-misc/ksshaskpass
+net-misc/mosh
 net-misc/neatx
 net-misc/netkit-fingerd
 net-misc/netkit-telnetd

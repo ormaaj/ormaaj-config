@@ -11,6 +11,7 @@ app-office/akonadi-server
 app-portage/hackport
 app-portage/layman-dbtools
 app-text/cuneiform
+app-vim/youcompleteme
 dev-cpp/eigen
 dev-haskell/deepseq
 dev-haskell/lushtags
@@ -33,7 +34,10 @@ games-simulation/flightgear
 kde-misc/kwebkitpart
 media-gfx/digikam
 =media-gfx/exiv2-0.23-r2
-<media-gfx/gimp-9999
+media-gfx/gimp
+#<media-gfx/gimp-9999
+media-libs/babl
+media-libs/gegl
 =media-libs/libgphoto2-2.5.4-r1
 media-libs/libjpeg-turbo
 media-libs/libpano13
@@ -50,6 +54,7 @@ net-irc/weechat
 net-libs/xulrunner
 net-misc/socat
 net-proxy/polipo
+sci-geosciences/josm
 sys-apps/portage
 <sys-boot/grub-9999
 sys-devel/clang

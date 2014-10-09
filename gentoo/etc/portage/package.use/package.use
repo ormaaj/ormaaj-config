@@ -17,7 +17,7 @@ app-emulation/wine win64 win32 abi_x86_32 -custom-cflags -gstreamer
 app-misc/byobu python_single_target_python2_7
 app-misc/screen multiuser
 app-office/akonadi-server sqlite
-app-office/calligra glew -kdepim -calligra_features_plan
+app-office/calligra glew vc marble gsl -kdepim -calligra_features_plan
 app-office/kchart reports
 app-office/koffice-libs reports
 app-office/libreoffice gtk3 -webdav
@@ -68,23 +68,26 @@ dev-libs/xmlrpc-c libwww curl
 dev-libs/xmlsec gcrypt
 dev-libs/xqilla doc examples
 dev-python/cython doc examples
-dev-python/docutils python_targets_python3_2
+dev-python/docutils python_targets_python3_4
 dev-python/* doc
 dev-python/imaging tk
 dev-python/ipython matplotlib notebook octave python_targets_python3_4 -doc
 dev-python/lxml doc examples
 dev-python/markdown pygments
 dev-python/matplotlib -doc
+dev-python/pillow python_targets_python3_3
 dev-python/PyQt4 assistant declarative svg webkit X doc examples help multimedia scripttools xmlpatterns -kde python_targets_python3_2
 dev-python/pyRXP examples
 dev-python/pyxml doc examples
->=dev-python/qscintilla-python-2.8.3 python_targets_python3_2
-=dev-python/setuptools-5.4.1 python_targets_python3_2
-=dev-python/sip-4.16.2 python_targets_python3_2
+dev-python/qscintilla-python python_targets_python3_2
+#dev-python/setuptools python_targets_python3_2 python_targets_python3_4
+=dev-python/sip-4.16.2 python_targets_python3_2 python_targets_python3_4
 =dev-python/xmpppy-0.5.0_rc1 python_targets_python3_2
 dev-qt/designer -phonon
 dev-qt/qt-creator autotools cmake examples fakevim valgrind
 dev-qt/qtgui private-headers gtkstyle
+dev-qt/qtgui:4 -egl
+#=dev-qt/qtgui-4.8.5-r3 -egl
 dev-qt/qthelp doc compat
 dev-qt/qtsvg accessibility
 dev-qt/qtwebkit widgets

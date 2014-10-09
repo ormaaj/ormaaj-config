@@ -1,4 +1,3 @@
-app-cdr/k3b **
 app-doc/pms **
 app-editors/kile **
 app-editors/qxmledit **
@@ -17,6 +16,7 @@ app-shells/bash **
 <app-shells/ksh-9999 **
 app-shells/mksh **
 app-text/pandoc **
+app-vim/youcompleteme **
 #dev-dotnet/libgdiplus **
 dev-dotnet/nuget **
 dev-games/bsnes-libretro **
@@ -32,9 +32,10 @@ dev-lang/python **
 dev-libs/grantlee **
 dev-libs/serd **
 dev-libs/sord **
+=dev-libs/extra-cmake-modules-9999 **
 dev-python/pyRXP **
 dev-python/rfc3339 **
-dev-qt/qt-creator **
+dev-python/setuptools **
 dev-scheme/racket **
 dev-util/chromium-tools **
 dev-util/emilpro **
@@ -68,6 +69,9 @@ games-util/terragear **
 kde-misc/kdiff3 **
 kde-misc/kwebkitpart **
 media-gfx/digikam **
+media-gfx/gimp **
+media-libs/babl **
+media-libs/gegl **
 media-libs/libflashsupport-jack **
 media-libs/libjpeg-turbo **
 media-libs/libvpx **
@@ -101,6 +105,7 @@ net-libs/xulrunner **
 net-misc/socat **
 net-p2p/ktorrent **
 net-proxy/polipo **
+sci-geosciences/josm **
 sys-apps/nvramtool **
 <sys-apps/portage-9999 **
 sys-apps/superiotool **

@@ -97,11 +97,11 @@ PasswordAuthentication no
 UsePAM yes
 
 #AllowAgentForwarding yes
-#AllowTcpForwarding yes
+AllowTcpForwarding yes
 GatewayPorts yes
 X11Forwarding yes
-#X11DisplayOffset 10
-#X11UseLocalhost yes
+X11DisplayOffset 10
+X11UseLocalhost yes
 PrintMotd no
 PrintLastLog no
 #TCPKeepAlive yes

@@ -108,7 +108,6 @@ app-portage/mirrorselect
 app-portage/pfl
 app-portage/portage-utils
 app-shells/bash-completion
-app-shells/bashdb
 app-shells/dash
 app-shells/gentoo-bashcomp
 app-shells/heirloom-sh
@@ -235,9 +234,6 @@ dev-python/winpdb
 dev-python/wsgiintercept
 dev-python/wsgiproxy2
 dev-python/xmpppy
-dev-qt/qdbus
-dev-qt/qdbusviewer
-dev-qt/qt-creator
 dev-scheme/racket
 dev-util/argouml
 dev-util/beediff
